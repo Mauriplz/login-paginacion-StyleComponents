@@ -12,8 +12,6 @@ const UserList = () => {
   const { page, pageSize, totalPages, list } = useSelector(state => state.list)
   const pagesArray = [...Array(totalPages)]
 
-
-
   const handlePageClick = targetPage => {
     history.push(`users?page=${targetPage}&pageSize=${pageSize}`)
     // dispatch(fetchUserList(targetPage, pageSize))
@@ -26,8 +24,11 @@ const UserList = () => {
   }
 
   useEffect(() => {
+    //Recojo el parámetro page de la url
     const page = new URLSearchParams(search).get('page') || 1;
+    //Recojo el parámetro page size de la url
     const pageSize = new URLSearchParams(search).get('pageSize') || 1;
+    //Cargo la lista de usuarios de la página y tamaño de página dadas en url
     dispatch(fetchUserList(page, pageSize))
     // dispatch(fetchUserList(1, pageSize))
   }, [history])
@@ -45,7 +46,7 @@ const UserList = () => {
           console.log(index)
           const number = index + 1
           return (
-            <div className={number === page ? 'active' : ''} onClick={() => handlePageClick(number)}>{number}</div>
+            <div key={index} className={number === page ? 'active' : ''} onClick={() => handlePageClick(number)}>{number}</div>
           )
         })}
       </Row>
