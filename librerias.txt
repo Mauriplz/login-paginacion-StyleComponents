@@ -1,0 +1,16 @@
+npm i redux react-redux redux-thunk
+npm i react-router-dom@5.2.0
+npm i react-hook-form
+npm i yup
+npm i @hookform/resolvers
+npm install --save styled-components
+npm i node-sass
+npm i query-string
+npm i sweetalert2
+
+
+
+
+Usuario Correcto
+eve.holt@reqres.in
+cityslicka
