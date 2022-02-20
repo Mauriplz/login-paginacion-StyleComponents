@@ -12,10 +12,19 @@ const Footer = styled.div`
     margin-top: auto;
 `
 
+const PFooter = styled.p`
+  font-size: 10px;
+  @media only screen and (min-width:675px){
+    font-size: 14px;
+  }
+
+`
+
 const FooterContainer = () => {
   return (
     <Footer>
-        <p>@<b>Mauricio Plaza: </b> Desarrolador front</p>
+        <PFooter>Copyright 2022 - Desarrolador Front <b>Mauricio Plaza</b></PFooter>
+        
     </Footer>
   )
 }

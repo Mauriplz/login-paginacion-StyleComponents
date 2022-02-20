@@ -19,7 +19,7 @@ const LoginPage = () => {
 
     const dispatch = useDispatch();
     const { loading } = useSelector(state => state.ui);
-
+    //Inicializacion de react-hook-from
     const { register, handleSubmit, formState: { errors },reset } = useForm({
         resolver: yupResolver(schemaLogin),
         defaultValues: {
@@ -27,12 +27,13 @@ const LoginPage = () => {
             password: ''
         }
     });
-
+    //Login Email y Password
     const handleLogin = (data) => {
         dispatch(startLoginEmailPassword(data));
     }
-
+    //Login con Google Provider
     const handleLoginGoogle = () => {
+        //Resetamos los datos del formulario
         reset({
             email:'',
             password:''

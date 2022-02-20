@@ -1,4 +1,4 @@
-import { types } from "../types/types"
+import { types } from "../types/types";
 
 const initialState = {
     globalLoading: true,
@@ -13,27 +13,27 @@ export const uiReducer = (state = initialState, action) => {
             return {
                 ...state,
                 globalLoading : false
-            }
+            };
 
         case types.uiLoadingStart:
             return {
                 ...state,
                 loading : true,
-            }
+            };
 
         case types.uiLoadingFinish:
             return {
                 ...state,
                 loading: false
-            }
+            };
         
         case types.uiToogle:
             return {
                 ...state,
                 expand : action.payload
-            }
+            };
 
         default:
-            return state
+            return state;
     }
 }

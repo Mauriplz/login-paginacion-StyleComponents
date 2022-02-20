@@ -1,5 +1,6 @@
 import { types } from "../types/types";
 
+//Acciones globales para la app
 export const finishGlobalLoading = () =>({
     type : types.uiGlobalLoadingFinish
 })

@@ -55,7 +55,7 @@ const Navbar = () => {
                 <RightContainer>
                     <ButtonDangerNavbar onClick={handleLogout} danger visible={true} fontSize={16}><i
                         className='fas fa-arrow-right-from-bracket'></i>{' '}
-                        <span>Salir</span>
+                        <span>Cerrar Sesión</span>
                     </ButtonDangerNavbar>
                     <LogoLigaExpanded styleExpand={expand} src={LogoImgExpand}></LogoLigaExpanded>
                 </RightContainer>

@@ -12,4 +12,4 @@ export const types = {
     //List
     listLoadList : '[Ui] Load List',
     listCleanList : '[Ui] Clean List',
-}
+};

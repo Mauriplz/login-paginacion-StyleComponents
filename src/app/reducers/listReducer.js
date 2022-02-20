@@ -15,9 +15,9 @@ export const listReducer = (state=intialState, action) =>{
                 page: action.payload.page,
                 pageSize: action.payload.pageSize,
                 totalPages: action.payload.totalPages
-            }
+            };
         case types.listCleanList:
-            return intialState
+            return intialState;
 
         default:
             return state;

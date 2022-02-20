@@ -4,26 +4,28 @@ import {signInWithPopup} from 'firebase/auth';
 import { auth, googleProvider } from "../firebase/firebase-config";
 import Swal from 'sweetalert2'
 import { cleanList } from "./list";
-import { expandToogle } from "./ui";
+import { expandToogle, finishLoading, startLoading } from "./ui";
 
 export const startLoginEmailPassword = (user) => {
 
     return async (dispatch) => {
+        dispatch(startLoading())
         try {
             const data = await postFetch('login', user);
             dispatch( login(data) );
-            localStorage.setItem('auth', JSON.stringify(data))
+            localStorage.setItem('auth', JSON.stringify(data));
         } catch (error) {
-            Swal.fire('Error', error, 'error')
+            Swal.fire('Error', error, 'error');
         }finally{
-
+            dispatch(finishLoading())
         }
 
     }
-}
+};
 
 export const startLoginGoogleProvider = () =>{
     return async(dispatch)=>{
+        dispatch(startLoading())
         try{
             const {user} = await signInWithPopup(auth, googleProvider);
             dispatch(loginGoogle(user))
@@ -31,9 +33,11 @@ export const startLoginGoogleProvider = () =>{
             localStorage.setItem('auth', JSON.stringify(resAuth))
         }catch(e){
             console.log(e)
+        }finally{
+            dispatch(finishLoading())
         }
     } 
-}
+};
 
 export const startLogout = () =>{
     return (dispatch)=>{
@@ -42,20 +46,20 @@ export const startLogout = () =>{
         dispatch(expandToogle(false))
         localStorage.setItem('auth','')
     }
-}
+};
 
 export const loginGoogle = (user) =>({
     type : types.authLoginGoogle,
     payload : user   
-})
+});
 
 
 export const login = (user) => ({
     type: types.authLogin,
     payload: user
-})
+});
 
 export const logout = () => ({
     type: types.authLogout
-})
+});
 

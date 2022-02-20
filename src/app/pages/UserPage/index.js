@@ -1,9 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
-import UserContainer from '../../components/UsersStyleComponent/UsersContainer'
-import Navbar from '../../containers/Navbar'
-import UserList from '../../containers/UserList'
-import UserUrlList from '../../containers/UserUrlList'
+import React from 'react';
+
+//COMPONENTS
+import UserContainer from '../../components/UsersStyleComponent/UsersContainer';
+import Navbar from '../../containers/Navbar';
+import UserList from '../../containers/UserList';
+import UserUrlList from '../../containers/UserUrlList';
 
 const UserPage = () => {
     
