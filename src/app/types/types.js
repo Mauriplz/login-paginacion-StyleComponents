@@ -8,6 +8,7 @@ export const types = {
     uiGlobalLoadingFinish : '[Ui] GlobalLoading Finish',
     uiLoadingStart : '[Ui] Loading Start',
     uiLoadingFinish : '[Ui] Loading Finish',
+    uiToogle : '[Ui] Open Expand',
     //List
     listLoadList : '[Ui] Load List',
     listCleanList : '[Ui] Clean List',

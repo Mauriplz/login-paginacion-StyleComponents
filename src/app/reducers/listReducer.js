@@ -2,9 +2,9 @@ import { types } from "../types/types";
 
 const intialState = {
     list: [],
-    page: 1,
-    pageSize: 1,
-    totalPages: 1
+    page: null,
+    pageSize: 2,
+    totalPages: null
 }
 
 export const listReducer = (state=intialState, action) =>{

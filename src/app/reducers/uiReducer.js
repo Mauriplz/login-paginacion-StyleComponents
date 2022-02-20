@@ -2,7 +2,8 @@ import { types } from "../types/types"
 
 const initialState = {
     globalLoading: true,
-    loading: false
+    loading: false,
+    expand : false
 }
 
 export const uiReducer = (state = initialState, action) => {
@@ -24,6 +25,12 @@ export const uiReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading: false
+            }
+        
+        case types.uiToogle:
+            return {
+                ...state,
+                expand : action.payload
             }
 
         default:

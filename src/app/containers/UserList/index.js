@@ -1,64 +1,87 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min'
 import { fetchUserList } from '../../actions/list'
-import { ColumnGrid } from '../../components/Responsive/ResponsiveStylesComponents'
+import UserListChangePage from '../../components/Buttons/UserListChangePage'
+import UserListItemPagButtons from '../../components/Buttons/UserListItemPagButtons'
 import { Row } from '../../components/Responsive/ResponsiveStylesComponents'
+import Spinner from '../../components/Spinner'
+import UserListItemCard from '../../components/UserListItemCard'
+import UserSelectFilter from '../../components/UserSelectFilter'
+import UserListContainer from '../../components/UsersStyleComponent/UserListContainer'
 
 const UserList = () => {
-  const history = useHistory()
+
   const dispatch = useDispatch()
-  const search = useLocation().search;
+  const {expand} = useSelector(state=>state.ui)
+  //pageSize esta definido en REdux para darle un valor por defecto al numero de elementos por pagina
   const { page, pageSize, totalPages, list } = useSelector(state => state.list)
+  //Creo un array vacio con el numero de paginas(length) necesario para hacer un map del mismo
   const pagesArray = [...Array(totalPages)]
 
-  const handlePageClick = targetPage => {
-    history.push(`users?page=${targetPage}&pageSize=${pageSize}`)
-    // dispatch(fetchUserList(targetPage, pageSize))
+  const handlePageClick = (targetPage) => {
+    dispatch(fetchUserList(targetPage, pageSize))
   }
 
-  const handleChangePageSize = e => {
-    history.push(`users?page=1&pageSize=${e.target.value}`)
+  const handleChangePageSize = (e) => {
+    dispatch(fetchUserList(1, e.target.value))
+  }
 
-    // dispatch(fetchUserList(1, e.target.value))
+  const handleAvPage = () =>{
+    (page<totalPages) && (dispatch(fetchUserList(page+1, pageSize)))
+  }
+
+  const handleRePage = () =>{
+    (page>1) && (dispatch(fetchUserList(page-1, pageSize)))
   }
 
   useEffect(() => {
-    //Recojo el parámetro page de la url
-    const page = new URLSearchParams(search).get('page') || 1;
-    //Recojo el parámetro page size de la url
-    const pageSize = new URLSearchParams(search).get('pageSize') || 1;
-    //Cargo la lista de usuarios de la página y tamaño de página dadas en url
-    dispatch(fetchUserList(page, pageSize))
-    // dispatch(fetchUserList(1, pageSize))
-  }, [history])
+    dispatch(fetchUserList(1, pageSize));
+  }, [])
 
+  if(!page){
+    return <Spinner />
+  }
 
   return (
-    <>
-      <Row justify="">
+    <UserListContainer expand={expand}>
+      <Row>
+        <h1>Usuarios</h1>
+        <UserSelectFilter 
+          onChange={handleChangePageSize} 
+          value={pageSize} 
+        />
+      </Row>
+      <hr></hr>
+      <Row>
         {list.map((item, index) => (
-          <ColumnGrid sm={6} md={4} lg={4} style={{ backgroundColor: 'salmon' }} key={index}>{item.first_name}</ColumnGrid>
+         <UserListItemCard key={item.id} {...item} />
         ))}
       </Row>
-      <Row justify="">
-        {pagesArray.map((item, index) => {
-          console.log(index)
-          const number = index + 1
+      <Row flexDirection="row" justify="center">
+        <UserListChangePage onClick={handleRePage}>
+          <i className="fas fa-angle-left"></i>
+        </UserListChangePage>
+        {pagesArray.map((item, i) => {
+          const number = i + 1
           return (
-            <div key={index} className={number === page ? 'active' : ''} onClick={() => handlePageClick(number)}>{number}</div>
+            <UserListItemPagButtons 
+              key={number} 
+              number={number} 
+              page={page} 
+              onClick={() => handlePageClick(number)}
+            />
           )
         })}
+        <UserListChangePage onClick={handleAvPage}>
+          <i className="fas fa-angle-right"></i>
+        </UserListChangePage>
       </Row>
-      <Row justify="">
-        <select onChange={handleChangePageSize} value={pageSize}>
-          <option value={1}>1</option>
-          <option value={2}>2</option>
-          <option value={3}>3</option>
-          <option value={6}>6</option>
-        </select>
+
+      <Row justify="center">
+        <UserSelectFilter onChange={handleChangePageSize} value={pageSize} />
       </Row>
-    </>
+      
+    </UserListContainer>
   )
 }
 

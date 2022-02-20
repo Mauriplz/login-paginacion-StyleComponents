@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startLogout } from '../../actions/auth';
 import { ButtonDangerNavbar, 
@@ -23,15 +23,15 @@ import ButtonDanger from '../../components/Buttons/ButonDanger';
 import LogoImg from '../../../assets/logo-liga.jpg';
 import LogoImgExpand from '../../../assets/lg.png';
 import LogoImg1 from '../../../assets/logo-1.png'
+import { expandToogle } from '../../actions/ui';
 const Navbar = () => {
 
     const dispatch = useDispatch()
+    const {expand} =  useSelector(state=>state.ui)
     const { token } = useSelector(state => state.auth)
 
-    const [extend, setExtend] = useState(false)
-
     const handleExtend = () => {
-        setExtend(!extend)
+        dispatch(expandToogle(!expand))
     }
     const handleLogout = () => {
         dispatch(startLogout())
@@ -39,28 +39,28 @@ const Navbar = () => {
 
     return (
         <NavbarContainer>
-            <NavbarInnerContainer extend={extend}>
+            <NavbarInnerContainer extend={expand}>
                 <LeftContainer>
                     <NavbarLinkContainer>
                         <NavbarLink to="/user">
                             <LogoLiga src={LogoImg}></LogoLiga>
                         </NavbarLink>
-                        <PUser>User - {token}</PUser>
+                        <PUser>Usuario - {token}</PUser>
                     </NavbarLinkContainer>
-                    <ButtonTogle styleExpand={extend} onClick={handleExtend}>
-                        <i className={extend ? 'fas fa-xmark' : 'fas fa-futbol'}></i>
+                    <ButtonTogle styleExpand={expand} onClick={handleExtend}>
+                        <i className={expand ? 'fas fa-xmark' : 'fas fa-futbol'}></i>
 
                     </ButtonTogle>
                 </LeftContainer>
                 <RightContainer>
                     <ButtonDangerNavbar onClick={handleLogout} danger visible={true} fontSize={16}><i
                         className='fas fa-arrow-right-from-bracket'></i>{' '}
-                        Logout
+                        <span>Salir</span>
                     </ButtonDangerNavbar>
-                    <LogoLigaExpanded styleExpand={extend} src={LogoImgExpand}></LogoLigaExpanded>
+                    <LogoLigaExpanded styleExpand={expand} src={LogoImgExpand}></LogoLigaExpanded>
                 </RightContainer>
             </NavbarInnerContainer>
-            {(extend) && (
+            {(expand) && (
                 <NavbarExtenderContainer>
                     <NavbarLinkContainerExpand>
                         <NavbarLinkExtended to="/user">

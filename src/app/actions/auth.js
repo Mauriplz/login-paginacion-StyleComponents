@@ -4,6 +4,7 @@ import {signInWithPopup} from 'firebase/auth';
 import { auth, googleProvider } from "../firebase/firebase-config";
 import Swal from 'sweetalert2'
 import { cleanList } from "./list";
+import { expandToogle } from "./ui";
 
 export const startLoginEmailPassword = (user) => {
 
@@ -38,6 +39,7 @@ export const startLogout = () =>{
     return (dispatch)=>{
         dispatch(logout())
         dispatch(cleanList())
+        dispatch(expandToogle(false))
         localStorage.setItem('auth','')
     }
 }

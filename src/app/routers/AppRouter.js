@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 import { login } from '../actions/auth'
 import { finishGlobalLoading } from '../actions/ui'
+import Spinner from '../components/Spinner'
 import LoginPage from '../pages/LoginPage'
 import UserPage from '../pages/UserPage'
 import { PrivateRoute } from './PrivateRoute'
@@ -27,7 +28,7 @@ export const AppRouter = () => {
     }, [])
 
     if (globalLoading) {
-        return <p>Loading...</p>
+        return <Spinner />
     }
 
     return (

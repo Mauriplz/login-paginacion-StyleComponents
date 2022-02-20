@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ButtonDanger from '../Buttons/ButonDanger';
 
+/*rgb(37, 40, 42);#E0E0E0 */
+
 export const NavbarContainer = styled.nav`
     width: 100%;
     height: 80px;
@@ -45,7 +47,6 @@ export const NavbarLinkContainerExpand = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
-/* background-color: rgb(37, 40, 42);#E0E0E0 */
 background-color: #E0E0E0;
 padding-bottom: 18px;
 `
@@ -82,13 +83,13 @@ export const LogoLigaExpanded = styled.img`
     width: 71px;
     height: 57px;
     margin-top: ${(props)=>(props.styleExpand ? "13px":"0")};
-    @media only screen and (min-width: 700px){
+    @media only screen and (min-width: 701px){
         display: none;
     }
 `
 
 export const PUser = styled.p`
-    color: white !important;
+    color: white;
     font-size: 14px;
     @media only screen and (max-width: 700px){
         display: none;
@@ -120,7 +121,7 @@ export const ButtonTogle = styled.button`
     cursor: pointer;
     margin-top: ${(props)=>(props.styleExpand ? "13px":"0")};
     transition: background-color .3s ease;
-    @media only screen and (min-width:700px){
+    @media only screen and (min-width:701px){
         display: none;
     }
     &:hover{

@@ -13,7 +13,7 @@ const Input = styled.input`
 
     &:focus{
         outline: none;
-        border: ${({error})=>(error) ? '2px solid  red' : '3px solid  #109517'};
+        border: ${({error})=>(error) ? '1px solid  red' : '1px solid  #109517'};
     }
 `
 const Label = styled.label`

@@ -11,3 +11,8 @@ export const startLoading = () =>({
 export const finishLoading = () => ({
     type : types.uiLoadingFinish
 })
+
+export const expandToogle = (payload) =>({
+    type : types.uiToogle,
+    payload : payload
+})

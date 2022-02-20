@@ -10,7 +10,9 @@ npm i sweetalert2
 npm install eslint -D
 npm install -D eslint-config-prettier
 npm install -D prettier
-npx mrm lint-staged(limpieza codigo)
+
+npm install react-loader-spinner
+
 
 Usuario Correcto
 eve.holt@reqres.in

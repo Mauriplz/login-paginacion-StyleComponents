@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const SocialNetworks = styled.div`
     width: 100%;
-`
+`;
 
 const GoogleIcon = styled.img`
     position: absolute;
@@ -11,7 +11,7 @@ const GoogleIcon = styled.img`
     margin-left: 11px;
     width: 18px;
     height: 18px;
-`
+`;
 
 const BtnText = styled.div`
     text-align:center;
@@ -20,7 +20,7 @@ const BtnText = styled.div`
     letter-spacing: 0.2px;
     padding : 13px;
     font-size: 18px;
-`
+`;
 
 const IconWrapper = styled.div`
     position: absolute;
@@ -28,7 +28,7 @@ const IconWrapper = styled.div`
     height: 47px;
     border-radius: 5px 0px 0px 5px;
     background-color: white;
-`
+`;
 
 const GoogleBtn = styled.div`
     cursor: pointer;
@@ -47,7 +47,15 @@ const GoogleBtn = styled.div`
     &:active {
         background: #1669f2;
     }
-    
+`;
+
+const SpanRegister = styled.span`
+    font-size: 13px;
+    padding-left: 25px;
+    @media only screen and (min-width:300px){
+        padding-left: 0px;
+        font-size: 16px
+    }
 `
 
 const FabGoogle = ({...props}) => {
@@ -58,7 +66,7 @@ const FabGoogle = ({...props}) => {
                     <GoogleIcon src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="google button" />
                 </IconWrapper>
                 <BtnText>
-                    <span>Registrate con Google</span>
+                    <SpanRegister>Registrate con Google</SpanRegister>
                 </BtnText>
             </GoogleBtn>
         </SocialNetworks>

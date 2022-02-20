@@ -1,14 +1,23 @@
 import styled from "styled-components";
 
+const handleFlexDirection = (props)=>{
+    switch(props){
+        case 'row':
+            return 'row'
+        default:
+            return 'column'
+    }
+}
+
 export const Row = styled.div`
     display : flex;
     width : 100%;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: ${({flexDirection})=>handleFlexDirection(flexDirection) };
     justify-content: ${props => (props.justify ? props.justify : 'space-around')};
     align-items: center;
-    @media only screen and ( max-width:667px ) {
-        flex-direction: column !important;
+    @media only screen and ( min-width:667px ) {
+        flex-direction: row;
     }
 `
 
