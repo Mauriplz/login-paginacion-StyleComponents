@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { ColumGridPag } from '../../Responsive/ResponsiveStylesComponents'
 
 /*rgb(37, 40, 42);#E0E0E0 */
 
@@ -13,10 +14,10 @@ export const ItemPagButtonsContainer = styled.div`
     text-align: center;
     padding: 4px 8px;
     border-radius: 6px;
-    margin: 5px 4px;
-    background-color: ${props=>props.page===props.number ? '#E0E0E0' : 'rgb(37, 40, 42)'};
-    color: ${props=>props.page===props.number ? 'rgb(37, 40, 42)' : '#E0E0E0'};
-    border: ${props=>props.page===props.number ? ' 1px solid rgb(37, 40, 42)' : '#E0E0E0'};
+    margin: 2px 4px;
+    background-color: ${props=>props.page===props.number ? 'rgb(37, 40, 42)' : '#E0E0E0'};
+    color: ${props=>props.page===props.number ? '#E0E0E0' : 'rgb(37, 40, 42)'};
+    border: ${props=>props.page===props.number ? ' 1px solid #E0E0E0' : 'rgb(37, 40, 42)'};
     &:hover{
         cursor: pointer;
     }
@@ -31,8 +32,6 @@ export const ItemPagButtonsContainer = styled.div`
     
 `
 
-// rgb(37, 40, 42)
-
 const SpanNumber = styled.div`
     font-weight: bold;
 `
@@ -43,9 +42,9 @@ const UserListItemPagButtons = ({
     ...rest
 }) => {
   return (
-    <ItemPagButtonsContainer number={number} page={page} {...rest}>
-        <SpanNumber>{number}</SpanNumber>
-    </ItemPagButtonsContainer>
+        <ItemPagButtonsContainer {...rest} number={number} page={page} >
+            <SpanNumber>{number}</SpanNumber>
+        </ItemPagButtonsContainer>
   )
 }
 

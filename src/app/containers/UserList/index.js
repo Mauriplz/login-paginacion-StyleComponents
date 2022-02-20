@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchUserList } from '../../actions/list'
 import UserListChangePage from '../../components/Buttons/UserListChangePage'
 import UserListItemPagButtons from '../../components/Buttons/UserListItemPagButtons'
-import { Row } from '../../components/Responsive/ResponsiveStylesComponents'
+import FooterContainer from '../../components/FooterContainer'
+import { Row, RowCards } from '../../components/Responsive/ResponsiveStylesComponents'
 import Spinner from '../../components/Spinner'
 import UserListItemCard from '../../components/UserListItemCard'
 import UserSelectFilter from '../../components/UserSelectFilter'
+import HrUserList from '../../components/UsersStyleComponent/HrUserList'
 import UserListContainer from '../../components/UsersStyleComponent/UserListContainer'
 
 const UserList = () => {
@@ -51,12 +53,12 @@ const UserList = () => {
           value={pageSize} 
         />
       </Row>
-      <hr></hr>
-      <Row>
+      <HrUserList />
+      <RowCards>
         {list.map((item, index) => (
          <UserListItemCard key={item.id} {...item} />
         ))}
-      </Row>
+      </RowCards>
       <Row flexDirection="row" justify="center">
         <UserListChangePage onClick={handleRePage}>
           <i className="fas fa-angle-left"></i>
@@ -80,7 +82,7 @@ const UserList = () => {
       <Row justify="center">
         <UserSelectFilter onChange={handleChangePageSize} value={pageSize} />
       </Row>
-      
+      <FooterContainer />
     </UserListContainer>
   )
 }

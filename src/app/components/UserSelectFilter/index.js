@@ -13,6 +13,7 @@ const SelectUser = styled.select`
 const DivSelectContainer = styled.div`
     display: flex;
     align-items: center;
+    margin: 20px 0px;
 `
 
 const SpanSelectContainer = styled.span`

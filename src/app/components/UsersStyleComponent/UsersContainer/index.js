@@ -6,6 +6,7 @@ const DivUserContainer = styled.div`
     height : 100vh;
     width : 100vw;
     flex-direction : column;
+    overflow-x: hidden;
 `
 
 const UserContainer = ({children}) => {

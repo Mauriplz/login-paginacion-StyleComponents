@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { ItemPagButtonsContainer } from '../UserListItemPagButtons';
 
 const ChangePageButton = styled(ItemPagButtonsContainer)`
-    color: rgb(37, 40, 42);
+    color: #E0E0E0;
 `
 const UserListChangePage = ({children, ...props}) => {
   return (

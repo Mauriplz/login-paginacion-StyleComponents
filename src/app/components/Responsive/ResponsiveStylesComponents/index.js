@@ -21,6 +21,10 @@ export const Row = styled.div`
     }
 `
 
+export const RowCards = styled(Row)`
+    padding: 15px 0px;
+`
+
 export const Column = styled.div`
     float:left;
     width : 100%;
