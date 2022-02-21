@@ -4,6 +4,7 @@ import React from 'react';
 import UserContainer from '../../components/UsersStyleComponent/UsersContainer';
 import Navbar from '../../containers/Navbar';
 import UserList from '../../containers/UserList';
+//UserUrlList es una alternativa de paginacion por URL.
 import UserUrlList from '../../containers/UserUrlList';
 
 const UserPage = () => {

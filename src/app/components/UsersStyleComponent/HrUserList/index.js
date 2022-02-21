@@ -15,4 +15,4 @@ const HrUserList = () =>{
     )
 }
 
-export default HrUserList
+export default HrUserList;

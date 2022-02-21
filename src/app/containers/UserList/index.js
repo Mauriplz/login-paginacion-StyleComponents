@@ -1,3 +1,4 @@
+//Paginacion sin url
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserList } from '../../actions/list';
@@ -29,7 +30,7 @@ const UserList = () => {
     dispatch(fetchUserList(1, e.target.value));
   }
    //Funcion para Avanzar la pagina mediant Redux
-  const handleAvPage = () =>{
+  const handleNextPage = () =>{
     (page<totalPages) && (dispatch(fetchUserList(page+1, pageSize)));
   }
   //Funcion para Retroceder la pagina mediant Redux
@@ -50,10 +51,6 @@ const UserList = () => {
     <UserListContainer expand={expand}>
       <Row>
         <h1>Usuarios</h1>
-        <UserSelectFilter 
-          onChange={handleChangePageSize} 
-          value={pageSize} 
-        />
       </Row>
       <HrUserList />
         <RowCards>
@@ -68,7 +65,6 @@ const UserList = () => {
           {pagesArray.map((item, i) => {
             const number = i + 1
             return (
-              //Si number === page elemento activo
               <UserListItemPagButtons 
                 key={number} 
                 number={number} 
@@ -77,7 +73,7 @@ const UserList = () => {
               />
             )
           })}
-          <UserListChangePage onClick={handleAvPage}>
+          <UserListChangePage onClick={handleNextPage}>
             <i className="fas fa-angle-right"></i>
           </UserListChangePage>
         </Row>

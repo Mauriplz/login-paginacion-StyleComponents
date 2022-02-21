@@ -1,3 +1,4 @@
+//Paginacion con URL
 import React, { useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min'
@@ -5,7 +6,7 @@ import { fetchUserList } from '../../actions/list'
 import UserListChangePage from '../../components/Buttons/UserListChangePage'
 import UserListItemPagButtons from '../../components/Buttons/UserListItemPagButtons'
 import FooterContainer from '../../components/FooterContainer'
-import { ColumnGrid, RowCards } from '../../components/Responsive/ResponsiveStylesComponents'
+import { RowCards } from '../../components/Responsive/ResponsiveStylesComponents'
 import { Row } from '../../components/Responsive/ResponsiveStylesComponents'
 import Spinner from '../../components/Spinner'
 import UserListItemCard from '../../components/UserListItemCard'
@@ -32,11 +33,11 @@ const UserUrlList = () => {
     history.push(`users?page=1&pageSize=${e.target.value}`)
   }
   //Funcion para Avanzar la pagina mediant url
-  const handleAvPage = () =>{
+  const handleNextPage = () =>{
     (page<totalPages) && (history.push(`users?page=${page+1}&pageSize=${pageSize}`))
   }
   //Funcion para Retroceder la pagina mediant url
-  const handleRePage = () =>{
+  const handlePrevPage = () =>{
     (page>1) && (history.push(`users?page=${page-1}&pageSize=${pageSize}`))
   }
   //Cada vez que hay un cambio en la url se activa este efecto para restablecer o inicializar las variables
@@ -62,10 +63,6 @@ const UserUrlList = () => {
       <UserListContainer expand={expand}>
         <Row>
           <h1>Usuarios</h1>
-          <UserSelectFilter 
-            onChange={handleChangePageSize} 
-            value={pageSize} 
-          />
         </Row>
         <HrUserList />
           <RowCards>
@@ -74,7 +71,7 @@ const UserUrlList = () => {
             ))}
           </RowCards>
           <Row flexDirection="row" justify="center">
-            <UserListChangePage onClick={handleRePage}>
+            <UserListChangePage onClick={handlePrevPage}>
               <i className="fas fa-angle-left"></i>
             </UserListChangePage>
             {pagesArray.map((item, i) => {
@@ -88,7 +85,7 @@ const UserUrlList = () => {
                 />
               )
             })}
-            <UserListChangePage onClick={handleAvPage}>
+            <UserListChangePage onClick={handleNextPage}>
               <i className="fas fa-angle-right"></i>
             </UserListChangePage>
           </Row>

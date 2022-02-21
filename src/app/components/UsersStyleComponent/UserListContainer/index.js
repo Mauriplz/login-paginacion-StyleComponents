@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const UserListContainer = styled.div`
     margin-top: ${props=>props.expand ? '203px' : '' };
@@ -7,4 +7,4 @@ const UserListContainer = styled.div`
     height: 100%;
 `
 
-export default UserListContainer
+export default UserListContainer;

@@ -1,7 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-
-import laliga2 from '../../../../assets/laliga-login.jpeg'
+import React from 'react';
+import styled from 'styled-components';
+import laliga2 from '../../../../assets/laliga-login.jpeg';
 
 const DivImagenCont = styled.div`
     width:100%

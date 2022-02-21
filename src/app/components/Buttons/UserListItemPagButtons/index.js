@@ -1,9 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
-import { ColumGridPag } from '../../Responsive/ResponsiveStylesComponents'
+import React from 'react';
+import styled from 'styled-components';
 
-/*rgb(37, 40, 42);#E0E0E0 */
-
+//si el page y el number recibidos es igual elemento activo
 export const ItemPagButtonsContainer = styled.div`
     font-size: 13px;
     height: 17px;

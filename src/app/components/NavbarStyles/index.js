@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ButtonDanger from '../Buttons/ButonDanger';
 
-/*rgb(37, 40, 42);#E0E0E0 */
-
 export const NavbarContainer = styled.nav`
     width: 100%;
     height: 80px;

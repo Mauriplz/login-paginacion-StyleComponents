@@ -1,7 +1,7 @@
 
-import React from 'react'
-import styled from 'styled-components'
-import { ColumnGrid } from '../Responsive/ResponsiveStylesComponents'
+import React from 'react';
+import styled from 'styled-components';
+import { ColumnGrid } from '../Responsive/ResponsiveStylesComponents';
 
 const CardItemContainer = styled.div`
     width: 100%;
