@@ -12,11 +12,13 @@ export const fetchUserList = (page, pageSize) => {
     }
 }
 
+//Carga el Redux la lista con la paginacion
 export const loadList = (payload) => ({
     type: types.listLoadList,
     payload: payload
 });
 
+//Limpia la lista y la paginacion
 export const cleanList = () => ({
     type: types.listCleanList
 });

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startLogout } from '../../actions/auth';
+
+//COMPONENTS
 import { ButtonDangerNavbar, 
     ButtonTogle, 
     LeftContainer, 
@@ -18,7 +20,6 @@ import { ButtonDangerNavbar,
     RightContainer 
 } from '../../components/NavbarStyles';
 import ButtonDanger from '../../components/Buttons/ButonDanger';
-
 
 import LogoImg from '../../../assets/logo-liga.jpg';
 import LogoImgExpand from '../../../assets/lg.png';

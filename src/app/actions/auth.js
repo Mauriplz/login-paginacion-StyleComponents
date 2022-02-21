@@ -41,10 +41,12 @@ export const startLoginGoogleProvider = () =>{
 
 export const startLogout = () =>{
     return (dispatch)=>{
+        dispatch(startLoading())
         dispatch(logout())
         dispatch(cleanList())
         dispatch(expandToogle(false))
         localStorage.setItem('auth','')
+        dispatch(finishLoading())
     }
 };
 

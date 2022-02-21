@@ -43,12 +43,12 @@ export const NavbarLinkContainer = styled.div`
     align-items: center;
 `
 
-export const NavbarLinkContainerExpand = styled.div`
-display: flex;
-flex-direction: column;
-align-items: center;
-background-color: #E0E0E0;
-padding-bottom: 18px;
+export const NavbarLinkContainerExpand = styled(NavbarLinkContainer)`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #E0E0E0;
+    padding-bottom: 18px;
 `
 
 export const NavbarLink = styled(Link)`

@@ -64,8 +64,8 @@ const LoginPage = () => {
                             error={(errors.password?.message) ? true : false}
                         />
                         {(errors.password?.message) && <ErrorForm>{`${errors.password.message}`}</ErrorForm>}
-                        <ButtonPrimary primary>INICIAR SESIÓN</ButtonPrimary>
-                        <FabGoogle onClick={handleLoginGoogle} />
+                        <ButtonPrimary disabled={loading} primary>INICIAR SESIÓN</ButtonPrimary>
+                        <FabGoogle disabled={loading} onClick={handleLoginGoogle} />
                     </FormRH>
                 </ColumnGrid>
             </Row>

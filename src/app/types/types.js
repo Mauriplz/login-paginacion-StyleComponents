@@ -1,4 +1,4 @@
-
+//Tipos de acciones
 export const types = {
     //Auth
     authLogin : '[Auth] Login',

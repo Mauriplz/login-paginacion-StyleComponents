@@ -15,7 +15,7 @@ const ButtonPrimary = styled.button`
         outline: none;
     }
     &:disabled{
-        
+        background-color: #E0E0E0;
     }
     &:hover{
         background-color: #E0E0E0;

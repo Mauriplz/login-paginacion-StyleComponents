@@ -35,7 +35,7 @@ const GoogleBtn = styled.div`
     margin-top: 15px;
     width: 100%;
     height: 47px;
-    background-color: #007bff;
+    background-color: #0E2EC1;
     border-radius: 2px;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.25);
     font-size:10px;
@@ -46,6 +46,9 @@ const GoogleBtn = styled.div`
     }
     &:active {
         background: #1669f2;
+    }
+    &:disabled{
+        background-color: #007bff;;
     }
 `;
 
