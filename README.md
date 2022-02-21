@@ -5,11 +5,15 @@ Aplicacion SPA con React que se conecta a una API [ReqRes](https://reqres.in/) c
 La aplicacion consta de 2 rutas:
 
 * /login - Formulario con la autenticacion del usuario y manejo de errores
-Usuario Correcto:
-Usuario : eve.holt@reqres.in
-Contraseña : cityslicka
+
+  Usuario Correcto:
+
+  Usuario : eve.holt@reqres.in
+
+  Contraseña : cityslicka
 
 * /users - Listado de usuarios y Paginacion personalizada (pagina y elementos mostrados en pantalla)
+
 He dejado comentado en **/src/app/pages/UserPage/index.js** el componente **UserUrlList** es una paginacion mediante rutas funcional pero he dejado <UserList /> ya que es una navegacion basada en Redux.
 
 # Comenzando 🚀
